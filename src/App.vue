@@ -60,7 +60,7 @@
         <br />
         <p><strong>Kontakt:</strong></p>
         <p>Telefon: 02821-9780881</p>
-        <p>E-Mail: [E-MAIL-ADRESSE]</p>
+        <p>E-Mail: info@zentrale-kleve.de</p>
         
         <br />
         <p><strong>Zuständige Aufsichtsbehörde:</strong></p>
