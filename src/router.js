@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from './views/home.vue'
 import Menu from './views/menu.vue'
-import TestView from './views/TestView.vue' // 1. Importieren
+import TestView from './views/TestView.vue'
+import ChatView from './views/ChatView.vue' // 1. Importieren
 
 const routes = [
   {
@@ -19,6 +20,12 @@ const routes = [
     path: '/test',
     name: 'Test',
     component: TestView
+  },
+  {
+    path: '/chat',
+    name: 'Chat',
+    component: ChatView
+
   }
 ]
 
