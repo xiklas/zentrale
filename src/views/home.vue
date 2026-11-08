@@ -18,15 +18,28 @@
         </div>
       </div>
 
-      <!-- Getränkekarte Button -->
-      <a 
-        href="https://menu.tillersystems.com/48925/zentrale/menu/60568" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="menu-link"
-      >
-        Getränkekarte
-      </a>
+      <!-- Aktionen: Karte ansehen / Chat -->
+      <div class="action-group">
+        <a 
+          href="https://menu.tillersystems.com/48925/zentrale/menu/60568" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="menu-link"
+        >
+          Karte ansehen
+        </a>
+
+        <div class="or-divider" role="separator" aria-label="oder">
+          <span>oder</span>
+        </div>
+
+        <a 
+          href="https://zentrale-kleve.de/chat" 
+          class="menu-link menu-link--outline"
+        >
+          Chat starten
+        </a>
+      </div>
 
       <!-- Öffnungszeiten -->
       <div class="opening-hours">
@@ -195,8 +208,8 @@ onMounted(() => {
   align-items: center;
   width: 280px;
   max-width: 85vw;
-  height: 65vh;
-  max-height: 480px;
+  height: 72vh;
+  max-height: 560px;
 }
 
 .centered-logo {
@@ -259,6 +272,21 @@ onMounted(() => {
   box-sizing: border-box;
 }
 
+/* Zweite Variante: Outline (weiß mit schwarzem Rand) */
+.menu-link--outline {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1.5px solid #000000;
+  box-shadow: none;
+}
+
+.menu-link--outline:hover {
+  background-color: #000000;
+  color: #ffffff;
+  opacity: 1;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
 .menu-link:hover {
   opacity: 0.88;
   transform: translateY(-1px);
@@ -267,6 +295,40 @@ onMounted(() => {
 
 .menu-link:active {
   transform: translateY(0);
+}
+
+/* Button-Gruppe mit "oder"-Trenner */
+.action-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.or-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 12px 0;
+  font-family: sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #000000;
+}
+
+.or-divider span {
+  opacity: 0.5;
+}
+
+.or-divider::before,
+.or-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #000000;
+  opacity: 0.15;
 }
 
 /* Öffnungszeiten Tabelle */
@@ -438,5 +500,36 @@ onMounted(() => {
 
 .icon-link:active {
   transform: translateY(0);
+}
+/* Dezenter Lichtreflex auf dem Chat-Button */
+.menu-link--outline {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-link--outline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(0, 0, 0, 0.08), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  animation: button-shine 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes button-shine {
+  0%, 70% { transform: translateX(-150%) skewX(-20deg); }
+  100%    { transform: translateX(350%) skewX(-20deg); }
+}
+
+/* Bewegung abschalten, wenn das Gerät "weniger Bewegung" eingestellt hat */
+@media (prefers-reduced-motion: reduce) {
+  .menu-link--outline::after {
+    animation: none;
+    display: none;
+  }
 }
 </style>

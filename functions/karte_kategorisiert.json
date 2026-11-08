@@ -1,0 +1,997 @@
+{
+  "bier_vom_fass": [
+    {
+      "name": "Pilsner Urquell",
+      "menge": "0,5 l",
+      "preis_eur": 5.2,
+      "kategorie": "Bier"
+    },
+    {
+      "name": "Pilsner Urquell",
+      "menge": "0,3 l",
+      "preis_eur": 3.4,
+      "kategorie": "Bier"
+    },
+    {
+      "name": "Bolten Alt",
+      "menge": "0,5 l",
+      "preis_eur": 4.9,
+      "kategorie": "Bier"
+    },
+    {
+      "name": "Bolten Alt",
+      "menge": "0,2 l",
+      "preis_eur": 2.2,
+      "kategorie": "Bier"
+    },
+    {
+      "name": "Radler",
+      "menge": "0,5 l",
+      "preis_eur": 5.2,
+      "kategorie": "Biermischgetränk",
+      "vergleichbar_mit": [
+        "Alster",
+        "Shandy"
+      ]
+    },
+    {
+      "name": "Radler",
+      "menge": "0,3 l",
+      "preis_eur": 3.4,
+      "kategorie": "Biermischgetränk",
+      "vergleichbar_mit": [
+        "Alster",
+        "Shandy"
+      ]
+    }
+  ],
+  "wein": [
+    {
+      "name": "Sagasti (Spanien)",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Rotwein"
+    },
+    {
+      "name": "Grauburgunder",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Weißwein"
+    },
+    {
+      "name": "Prosecco",
+      "menge": "0,1 l",
+      "preis_eur": 3.2,
+      "kategorie": "Schaumwein"
+    },
+    {
+      "name": "Zabu (Sizilien/Italien)",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Rotwein"
+    },
+    {
+      "name": "Riesling",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Weißwein"
+    },
+    {
+      "name": "Bouvet Cremant de Loire",
+      "menge": "0,7 l",
+      "preis_eur": 42.0,
+      "kategorie": "Schaumwein"
+    },
+    {
+      "name": "Primitivo (Italien)",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Rotwein"
+    },
+    {
+      "name": "Horgelus",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Weißwein"
+    },
+    {
+      "name": "Kallstadt (Kerner Spätlese, lieblich)",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Weißwein"
+    },
+    {
+      "name": "Weinschorle",
+      "menge": "0,2 l",
+      "preis_eur": 4.2,
+      "kategorie": "Weinschorle"
+    },
+    {
+      "name": "Weißwein",
+      "menge": "0,1 l",
+      "preis_eur": 3.2,
+      "kategorie": "Weißwein"
+    },
+    {
+      "name": "Chardonnay",
+      "menge": "0,2 l",
+      "preis_eur": 5.5,
+      "kategorie": "Weißwein"
+    },
+    {
+      "name": "Java Rosé",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Roséwein"
+    },
+    {
+      "name": "Pfaffenweiler Sauvignon blanc",
+      "menge": "0,2 l",
+      "preis_eur": 5.2,
+      "kategorie": "Weißwein"
+    },
+    {
+      "name": "Champagner Lagache brut",
+      "menge": "0,75 l",
+      "preis_eur": 60.0,
+      "kategorie": "Schaumwein"
+    }
+  ],
+  "softdrinks_und_saefte": [
+    {
+      "name": "Rheinfels Quelle Mineralwasser",
+      "menge": "0,25 l",
+      "preis_eur": 2.9,
+      "kategorie": "Wasser"
+    },
+    {
+      "name": "Afri Cola",
+      "menge": "0,2 l",
+      "preis_eur": 2.9,
+      "kategorie": "Cola & Limonade",
+      "vergleichbar_mit": [
+        "Coca-Cola",
+        "Pepsi"
+      ]
+    },
+    {
+      "name": "Afri Cola zero",
+      "menge": "0,2 l",
+      "preis_eur": 2.9,
+      "kategorie": "Cola & Limonade",
+      "vergleichbar_mit": [
+        "Coca-Cola Zero",
+        "Pepsi Max"
+      ]
+    },
+    {
+      "name": "Rhabarbersaft",
+      "menge": "0,2 l",
+      "preis_eur": 3.2,
+      "kategorie": "Saft"
+    },
+    {
+      "name": "Bluna Orange",
+      "menge": "0,2 l",
+      "preis_eur": 2.9,
+      "kategorie": "Cola & Limonade",
+      "vergleichbar_mit": [
+        "Fanta",
+        "Orangenlimonade"
+      ]
+    },
+    {
+      "name": "Saftschorle",
+      "menge": "0,2 l",
+      "preis_eur": 3.2,
+      "kategorie": "Saftschorle"
+    },
+    {
+      "name": "Bluna Zitrone",
+      "menge": "0,2 l",
+      "preis_eur": 2.9,
+      "kategorie": "Cola & Limonade",
+      "vergleichbar_mit": [
+        "Sprite",
+        "Zitronenlimonade"
+      ]
+    },
+    {
+      "name": "Thomas Henry Tonic",
+      "menge": "0,2 l",
+      "preis_eur": 3.2,
+      "kategorie": "Mixer",
+      "vergleichbar_mit": [
+        "Schweppes Tonic Water",
+        "Tonic Water"
+      ]
+    },
+    {
+      "name": "Thomas Henry Bitter Lemon",
+      "menge": "0,2 l",
+      "preis_eur": 3.2,
+      "kategorie": "Mixer",
+      "vergleichbar_mit": [
+        "Schweppes Bitter Lemon"
+      ]
+    },
+    {
+      "name": "Thomas Henry Ginger Ale",
+      "menge": "0,2 l",
+      "preis_eur": 3.2,
+      "kategorie": "Mixer",
+      "vergleichbar_mit": [
+        "Schweppes Ginger Ale",
+        "Canada Dry"
+      ]
+    },
+    {
+      "name": "Thomas Henry Spicy Ginger",
+      "menge": "0,2 l",
+      "preis_eur": 3.2,
+      "kategorie": "Mixer",
+      "vergleichbar_mit": [
+        "Ginger Beer"
+      ]
+    },
+    {
+      "name": "Orangensaft",
+      "menge": "0,2 l",
+      "preis_eur": 3.2,
+      "kategorie": "Saft"
+    },
+    {
+      "name": "Apfelsaft",
+      "menge": "0,2 l",
+      "preis_eur": 3.2,
+      "kategorie": "Saft"
+    },
+    {
+      "name": "Rauch Eistee Zitrone",
+      "menge": "0,3 l",
+      "preis_eur": 3.2,
+      "kategorie": "Eistee",
+      "vergleichbar_mit": [
+        "Nestea",
+        "Lipton Ice Tea"
+      ]
+    },
+    {
+      "name": "Rauch Eistee Pfirsich",
+      "menge": "0,3 l",
+      "preis_eur": 3.2,
+      "kategorie": "Eistee",
+      "vergleichbar_mit": [
+        "Nestea",
+        "Lipton Ice Tea"
+      ]
+    },
+    {
+      "name": "Rauch Eistee Granatapfel",
+      "menge": "0,3 l",
+      "preis_eur": 3.2,
+      "kategorie": "Eistee",
+      "vergleichbar_mit": [
+        "Eistee"
+      ]
+    },
+    {
+      "name": "Paulaner Spezi",
+      "menge": "0,3 l",
+      "preis_eur": 3.4,
+      "kategorie": "Cola & Limonade",
+      "vergleichbar_mit": [
+        "Mezzo Mix",
+        "Cola-Orange-Mix"
+      ]
+    }
+  ],
+  "gin_and_tonic": [
+    {
+      "name": "Bombay Dry Gin",
+      "details": "4 cl & Tonic",
+      "preis_eur": 7.0,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Bombay Sapphire",
+      "details": "4 cl & Tonic",
+      "preis_eur": 7.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Tanqueray",
+      "details": "4 cl & Tonic",
+      "preis_eur": 7.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "BurGin",
+      "details": "4 cl & Tonic",
+      "preis_eur": 7.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Bulldog",
+      "details": "4 cl & Tonic",
+      "preis_eur": 8.0,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Mombasa Club",
+      "details": "4 cl & Tonic",
+      "preis_eur": 8.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Berliner Brandstifter",
+      "details": "4 cl & Tonic",
+      "preis_eur": 9.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Hendricks",
+      "details": "4 cl & Tonic",
+      "preis_eur": 9.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "The Duke",
+      "details": "4 cl & Tonic",
+      "preis_eur": 9.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "G'Vine",
+      "details": "4 cl & Tonic",
+      "preis_eur": 10.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Gin Mare",
+      "details": "4 cl & Tonic",
+      "preis_eur": 10.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Monkey 47",
+      "details": "4 cl & Tonic",
+      "preis_eur": 12.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Gin Sul",
+      "details": "4 cl & Tonic",
+      "preis_eur": 12.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Elephant",
+      "details": "4 cl & Tonic",
+      "preis_eur": 12.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Engine",
+      "details": "4 cl Gin & Tonic",
+      "preis_eur": 11.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Juniper 0,0",
+      "details": "4 cl & Tonic",
+      "preis_eur": 8.0,
+      "kategorie": "Gin & Tonic (alkoholfrei)"
+    },
+    {
+      "name": "Illusionist",
+      "details": "4 cl & Tonic",
+      "preis_eur": 10.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Tanqueray No. 10",
+      "details": "4 cl & Tonic",
+      "preis_eur": 10.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Tanqueray 0,0",
+      "details": "4 cl & Tonic",
+      "preis_eur": 7.5,
+      "kategorie": "Gin & Tonic (alkoholfrei)"
+    },
+    {
+      "name": "Still Gin (Dr. Dre)",
+      "details": "4 cl & Tonic",
+      "preis_eur": 9.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Tinte Gin",
+      "details": "4 cl & Tonic",
+      "preis_eur": 9.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Nobels Gin",
+      "details": "4 cl & Tonic",
+      "preis_eur": 8.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Xellent Swiss Edelweiß Gin",
+      "details": "4 cl & Tonic",
+      "preis_eur": 9.5,
+      "kategorie": "Gin & Tonic"
+    },
+    {
+      "name": "Neeka Gin-Rum",
+      "details": "4 cl & Tonic",
+      "preis_eur": 10.5,
+      "kategorie": "Gin & Tonic"
+    }
+  ],
+  "spirituosen": [
+    {
+      "name": "Tequila Silver",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Tequila & Mezcal"
+    },
+    {
+      "name": "Tequila Gold",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Tequila & Mezcal"
+    },
+    {
+      "name": "Sambucca",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Anisspirituose"
+    },
+    {
+      "name": "Jägermeister",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Kräuterlikör & Bitter"
+    },
+    {
+      "name": "Havanna Club",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Rum"
+    },
+    {
+      "name": "De Kuyper Bessen Genever",
+      "menge": "0,2 l",
+      "preis_eur": 2.9,
+      "kategorie": "Genever"
+    },
+    {
+      "name": "Dark Mark",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Sonstige Spirituosen"
+    },
+    {
+      "name": "Nobeltje",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Sonstige Spirituosen"
+    },
+    {
+      "name": "Absolut Vodka",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Wodka"
+    },
+    {
+      "name": "Berliner Luft",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Pfefferminzlikör"
+    },
+    {
+      "name": "Saurer",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Sonstige Spirituosen"
+    },
+    {
+      "name": "Crema Alpina",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Likör"
+    },
+    {
+      "name": "Fernet Branca",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Kräuterlikör & Bitter"
+    },
+    {
+      "name": "Escorial grün",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Kräuterlikör & Bitter"
+    },
+    {
+      "name": "Ouzo 12",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Anisspirituose"
+    },
+    {
+      "name": "Asbach Uralt",
+      "menge": "0,2 l",
+      "preis_eur": 2.9,
+      "kategorie": "Weinbrand & Brandy"
+    },
+    {
+      "name": "Ramazotti",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Kräuterlikör & Bitter"
+    },
+    {
+      "name": "Campari",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Kräuterlikör & Bitter"
+    },
+    {
+      "name": "Averna",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Kräuterlikör & Bitter"
+    },
+    {
+      "name": "Oude Genever",
+      "menge": "2 cl",
+      "preis_eur": 3.2,
+      "kategorie": "Genever"
+    },
+    {
+      "name": "Bacardi Rum",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Rum"
+    },
+    {
+      "name": "Kahlua",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Likör"
+    },
+    {
+      "name": "Wentzels Korn",
+      "menge": "0,2 l",
+      "preis_eur": 2.7,
+      "kategorie": "Korn"
+    },
+    {
+      "name": "Klever Himbeere",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Likör"
+    },
+    {
+      "name": "Pernod",
+      "menge": "2 cl",
+      "preis_eur": 3.2,
+      "kategorie": "Anisspirituose"
+    },
+    {
+      "name": "Absinth (70 %)",
+      "menge": "0,2 l",
+      "preis_eur": 3.5,
+      "kategorie": "Anisspirituose"
+    },
+    {
+      "name": "Baileys",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Likör"
+    },
+    {
+      "name": "Legendario Rum",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Rum"
+    },
+    {
+      "name": "Martini Bianco",
+      "menge": "4 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Wermut"
+    },
+    {
+      "name": "Martini Rosso",
+      "menge": "4 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Wermut"
+    },
+    {
+      "name": "Corenwijn",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Genever"
+    },
+    {
+      "name": "Botucal Rum",
+      "menge": "2 cl",
+      "preis_eur": 5.9,
+      "kategorie": "Rum"
+    },
+    {
+      "name": "Aalborg Jub. Akvavit",
+      "menge": "2 cl",
+      "preis_eur": 3.9,
+      "kategorie": "Akvavit"
+    },
+    {
+      "name": "Mezcal",
+      "menge": "2 cl",
+      "preis_eur": 3.9,
+      "kategorie": "Tequila & Mezcal"
+    },
+    {
+      "name": "Mexikaner",
+      "menge": "2 cl",
+      "preis_eur": 1.5,
+      "kategorie": "Shot"
+    },
+    {
+      "name": "Licor 43",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Likör"
+    },
+    {
+      "name": "Fernando de Castilla Brandy",
+      "menge": "2 cl",
+      "preis_eur": 4.5,
+      "kategorie": "Weinbrand & Brandy"
+    },
+    {
+      "name": "Mampe halb & halb Kräuterlikör",
+      "menge": "2 cl",
+      "preis_eur": 2.9,
+      "kategorie": "Kräuterlikör & Bitter"
+    },
+    {
+      "name": "Rum Artesanal Panama",
+      "menge": "0,2 l",
+      "preis_eur": 3.5,
+      "kategorie": "Rum"
+    },
+    {
+      "name": "Carlos Primero Brandy",
+      "menge": "2 cl",
+      "preis_eur": 4.5,
+      "kategorie": "Weinbrand & Brandy"
+    },
+    {
+      "name": "Göbek Raki",
+      "menge": "0,2 l",
+      "preis_eur": 3.9,
+      "kategorie": "Anisspirituose"
+    },
+    {
+      "name": "Yeni Raki",
+      "menge": "0,2 l",
+      "preis_eur": 2.9,
+      "kategorie": "Anisspirituose"
+    },
+    {
+      "name": "Xuxu Erdbeerlikör",
+      "menge": "0,2 l",
+      "preis_eur": 2.9,
+      "kategorie": "Likör"
+    }
+  ],
+  "flaschenbiere": [
+    {
+      "name": "Benediktiner Weizenbier",
+      "menge": "0,5 l",
+      "preis_eur": 5.2,
+      "kategorie": "Bier"
+    },
+    {
+      "name": "Leffe blond",
+      "menge": "0,3 l",
+      "preis_eur": 5.2,
+      "kategorie": "Bier"
+    },
+    {
+      "name": "Bitburger 0,0",
+      "menge": "0,3 l",
+      "preis_eur": 3.4,
+      "kategorie": "Alkoholfreies Bier"
+    },
+    {
+      "name": "Augustiner Helles",
+      "menge": "0,5 l",
+      "preis_eur": 5.2,
+      "kategorie": "Bier"
+    },
+    {
+      "name": "Vita Malz",
+      "menge": "0,3 l",
+      "preis_eur": 3.4,
+      "kategorie": "Cola & Limonade",
+      "vergleichbar_mit": [
+        "Malzbier",
+        "Karamalz"
+      ]
+    },
+    {
+      "name": "Benediktiner Weizenbier alkoholfrei",
+      "menge": "0,5 l",
+      "preis_eur": 5.2,
+      "kategorie": "Alkoholfreies Bier"
+    },
+    {
+      "name": "Bitburger 0,0 herb",
+      "menge": "0,3 l",
+      "preis_eur": 3.4,
+      "kategorie": "Alkoholfreies Bier"
+    }
+  ],
+  "longdrinks": [
+    {
+      "name": "Wildberry Lillet",
+      "preis_eur": 7.0,
+      "kategorie": "Spritz"
+    },
+    {
+      "name": "Aperol Spritz",
+      "preis_eur": 7.0,
+      "kategorie": "Spritz"
+    },
+    {
+      "name": "Cola-Korn (Kiki)",
+      "preis_eur": 5.0,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Bacardi-Cola",
+      "preis_eur": 6.0,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Bacardi-Sprite",
+      "preis_eur": 6.0,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Vodka-Lemon",
+      "preis_eur": 6.0,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Limoncello-Sprite",
+      "preis_eur": 6.0,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Beton (Becherovka-Tonic)",
+      "preis_eur": 7.0,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Limoncello-Spritz",
+      "preis_eur": 6.0,
+      "kategorie": "Spritz"
+    },
+    {
+      "name": "Jim Beam Cola",
+      "preis_eur": 6.0,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Jack Daniels Cola",
+      "preis_eur": 6.0,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Jack Daniels Double Shot Cola",
+      "preis_eur": 7.5,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Jägermeister Orange Gin",
+      "preis_eur": 7.5,
+      "kategorie": "Longdrink"
+    },
+    {
+      "name": "Xuxu Spritz",
+      "preis_eur": 7.0,
+      "kategorie": "Spritz"
+    }
+  ],
+  "cocktails": [
+    {
+      "name": "Pornstar Martini",
+      "preis_eur": 10.5,
+      "kategorie": "Cocktail"
+    },
+    {
+      "name": "Cosmopolitan",
+      "preis_eur": 9.0,
+      "kategorie": "Cocktail"
+    },
+    {
+      "name": "Amaretto Sour",
+      "preis_eur": 9.0,
+      "kategorie": "Cocktail"
+    },
+    {
+      "name": "Negroni",
+      "preis_eur": 10.5,
+      "kategorie": "Cocktail"
+    },
+    {
+      "name": "Caipirinha",
+      "preis_eur": 9.0,
+      "kategorie": "Cocktail"
+    },
+    {
+      "name": "Gin Basil",
+      "preis_eur": 9.0,
+      "kategorie": "Cocktail"
+    },
+    {
+      "name": "Espresso Martini",
+      "preis_eur": 10.5,
+      "kategorie": "Cocktail"
+    },
+    {
+      "name": "Long Island Ice Tea",
+      "preis_eur": 11.5,
+      "kategorie": "Cocktail"
+    }
+  ],
+  "snacks": [
+    {
+      "name": "Käsestange",
+      "preis_eur": 2.0,
+      "kategorie": "Snack"
+    },
+    {
+      "name": "Frikadelle",
+      "preis_eur": 3.0,
+      "kategorie": "Snack"
+    },
+    {
+      "name": "Ültje Erdnüsse",
+      "preis_eur": 2.5,
+      "kategorie": "Snack"
+    },
+    {
+      "name": "Schokolade Ritter Sport",
+      "preis_eur": 2.5,
+      "kategorie": "Snack"
+    }
+  ],
+  "whisky": [
+    {
+      "name": "Tullamore Dew",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Irish Whiskey"
+    },
+    {
+      "name": "Jack Daniels",
+      "menge": "2 cl",
+      "preis_eur": 3.9,
+      "kategorie": "American Whiskey"
+    },
+    {
+      "name": "Jim Beam",
+      "menge": "2 cl",
+      "preis_eur": 3.9,
+      "kategorie": "American Whiskey"
+    },
+    {
+      "name": "Ardbeg Uigeadail",
+      "menge": "0,2 l",
+      "preis_eur": 10.5,
+      "kategorie": "Single Malt Whisky"
+    },
+    {
+      "name": "Glenmorangie 14 yrs Quinta Ruban",
+      "menge": "0,2 l",
+      "preis_eur": 5.5,
+      "kategorie": "Single Malt Whisky"
+    },
+    {
+      "name": "Laphroaig Islay Single Malt Scotch 10 y",
+      "menge": "2 cl",
+      "preis_eur": 4.5,
+      "kategorie": "Single Malt Whisky"
+    }
+  ],
+  "obstler_grappa": [
+    {
+      "name": "Grappa Diciotto Lune",
+      "menge": "2 cl",
+      "preis_eur": 3.9,
+      "kategorie": "Grappa"
+    },
+    {
+      "name": "Alde Gott Williamsbirne",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Obstbrand"
+    },
+    {
+      "name": "Alde Gott Mirabelle",
+      "menge": "0,2 l",
+      "preis_eur": 3.5,
+      "kategorie": "Obstbrand"
+    },
+    {
+      "name": "Alde Gott Himbeere",
+      "menge": "0,2 l",
+      "preis_eur": 3.5,
+      "kategorie": "Obstbrand"
+    },
+    {
+      "name": "Alde Gott Zwetsche",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Obstbrand"
+    },
+    {
+      "name": "Alde Gott Haselnuss",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Obstbrand"
+    },
+    {
+      "name": "Fein-Brennerei Prinz Marille",
+      "menge": "2 cl",
+      "preis_eur": 3.9,
+      "kategorie": "Obstbrand"
+    },
+    {
+      "name": "Fein-Brennerei Prinz Haselnuss",
+      "menge": "2 cl",
+      "preis_eur": 3.9,
+      "kategorie": "Obstbrand"
+    },
+    {
+      "name": "Fein-Brennerei Prinz Williams Christ-Birne",
+      "menge": "0,2 l",
+      "preis_eur": 3.9,
+      "kategorie": "Obstbrand"
+    },
+    {
+      "name": "Faude Gurkengeist",
+      "menge": "0,2 l",
+      "preis_eur": 3.5,
+      "kategorie": "Geist"
+    },
+    {
+      "name": "Trentino Grappa",
+      "menge": "2 cl",
+      "preis_eur": 3.5,
+      "kategorie": "Grappa"
+    }
+  ],
+  "der_klever": [
+    {
+      "name": "Der KLEVER 1-2025",
+      "preis_eur": 6.0,
+      "kategorie": "Sonstiges"
+    },
+    {
+      "name": "Whisky-Lexikon",
+      "preis_eur": 14.9,
+      "kategorie": "Sonstiges"
+    }
+  ]
+}
