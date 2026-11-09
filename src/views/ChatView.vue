@@ -100,10 +100,11 @@ const FUNCTION_URL = 'https://europe-west1-zentrale-kleve-app.cloudfunctions.net
 const suggestions = [
   { label: 'Rotwein', text: 'Welche Rotweine habt ihr?' },
   { label: 'Weißwein', text: 'Welche Weißweine habt ihr?' },
-  { label: 'Alkoholfreie Getränke', text: 'Welche alkoholfreien Getränke habt ihr?' },
+  { label: 'Alkoholfreies', text: 'Welche alkoholfreien Getränke habt ihr?' },
+  { label: 'Aperitif', text: 'Welche Aperitifs habt ihr?' },
   { label: 'Cocktails', text: 'Welche Cocktails habt ihr?' },
   { label: 'Longdrinks', text: 'Welche Longdrinks habt ihr?' },
-  { label: 'Bier', text: 'Welche Biere habt ihr?' },
+  { label: 'Fassbier', text: 'Welche Biere habt ihr vom Fass?' },
   { label: 'Gin & Tonic', text: 'Welche Gin & Tonics habt ihr?' },
   { label: 'Whisky', text: 'Welche Whiskys habt ihr?' },
   { label: 'Snacks', text: 'Welche Snacks habt ihr?' }
@@ -127,7 +128,7 @@ const messages = ref([
   {
     id: 1,
     sender: 'bot',
-    text: 'hey, worauf hast du heute Lust?'
+    text: 'hey, wozu möchtest du mehr wissen?'
   }
 ])
 

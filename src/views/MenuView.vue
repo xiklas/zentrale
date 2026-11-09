@@ -176,9 +176,8 @@ const toggle = (id) => {
 const euroFormat = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
 const euro = (preis) => euroFormat.format(preis)
 </script>
-
 <style scoped>
-/* ---------- Seite & Container (wie die anderen Views) ---------- */
+/* ---------- Seite & Container ---------- */
 .menu-page {
   position: fixed;
   top: 0;
@@ -186,8 +185,9 @@ const euro = (preis) => euroFormat.format(preis)
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  color-scheme: light !important;
   font-family: sans-serif;
   text-align: left;
   display: flex;
@@ -203,6 +203,8 @@ const euro = (preis) => euroFormat.format(preis)
   display: flex;
   flex-direction: column;
   min-height: 0;
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
 
 /* ---------- Header ---------- */
@@ -213,7 +215,8 @@ const euro = (preis) => euroFormat.format(preis)
   padding: 4px 8px;
   padding-top: calc(4px + env(safe-area-inset-top, 0px));
   flex-shrink: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+  background-color: #ffffff !important;
 }
 
 .back-link {
@@ -222,10 +225,14 @@ const euro = (preis) => euroFormat.format(preis)
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000000;
+  color: #000000 !important;
   opacity: 0.7;
   transition: opacity 0.2s ease;
   -webkit-tap-highlight-color: transparent;
+}
+
+.back-link svg {
+  stroke: #000000 !important;
 }
 
 .back-link:active {
@@ -239,6 +246,7 @@ const euro = (preis) => euroFormat.format(preis)
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  color: #000000 !important;
 }
 
 /* ---------- Inhalt ---------- */
@@ -250,10 +258,11 @@ const euro = (preis) => euroFormat.format(preis)
   overscroll-behavior: contain;
   padding: 0 16px;
   padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  background-color: #ffffff !important;
 }
 
 .abschnitt {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
 }
 
 .abschnitt-kopf {
@@ -269,9 +278,9 @@ const euro = (preis) => euroFormat.format(preis)
   align-items: center;
   gap: 12px;
   padding: 0;
-  background: none;
+  background: transparent !important;
   border: none;
-  color: inherit;
+  color: #000000 !important;
   font-family: inherit;
   text-align: left;
   cursor: pointer;
@@ -284,15 +293,19 @@ const euro = (preis) => euroFormat.format(preis)
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.2px;
+  color: #000000 !important;
 }
 
 .kopf-anzahl {
   font-size: 0.8rem;
+  color: #000000 !important;
   opacity: 0.4;
 }
 
 .chevron {
   flex-shrink: 0;
+  color: #000000 !important;
+  stroke: #000000 !important;
   opacity: 0.6;
   transition: transform 0.25s ease;
 }
@@ -301,7 +314,7 @@ const euro = (preis) => euroFormat.format(preis)
   transform: rotate(180deg);
 }
 
-/* ---------- Auf-/Zuklappen (ohne JavaScript-Höhen) ---------- */
+/* ---------- Auf-/Zuklappen ---------- */
 .panel {
   display: grid;
   grid-template-rows: 0fr;
@@ -315,7 +328,7 @@ const euro = (preis) => euroFormat.format(preis)
 .panel-inner {
   min-height: 0;
   overflow: hidden;
-  visibility: hidden; /* zugeklappt: nicht fokussierbar, nicht vorlesbar */
+  visibility: hidden;
   transition: visibility 0s linear 0.25s;
 }
 
@@ -328,6 +341,7 @@ const euro = (preis) => euroFormat.format(preis)
 .hinweis {
   margin: 0 0 4px 0;
   font-size: 0.85rem;
+  color: #000000 !important;
   opacity: 0.55;
 }
 
@@ -341,6 +355,7 @@ const euro = (preis) => euroFormat.format(preis)
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  color: #000000 !important;
   opacity: 0.5;
 }
 
@@ -356,19 +371,21 @@ const euro = (preis) => euroFormat.format(preis)
   align-items: flex-start;
   gap: 16px;
   padding: 10px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
   font-size: 1rem;
   line-height: 1.35;
+  color: #000000 !important;
 }
 
 .zeile:first-child {
-  border-top: none;
+  border-top: none !important;
 }
 
 .zeile-name {
   flex: 1;
   min-width: 0;
   overflow-wrap: break-word;
+  color: #000000 !important;
 }
 
 .zeile-preise {
@@ -388,11 +405,13 @@ const euro = (preis) => euroFormat.format(preis)
 
 .menge {
   font-size: 0.85rem;
+  color: #000000 !important;
   opacity: 0.5;
 }
 
 .preis {
   font-variant-numeric: tabular-nums;
+  color: #000000 !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

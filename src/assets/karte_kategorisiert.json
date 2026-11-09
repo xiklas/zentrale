@@ -706,16 +706,22 @@
       "kategorie": "Bier"
     },
     {
+      "name": "Augustiner Helles",
+      "menge": "0,5 l",
+      "preis_eur": 5.2,
+      "kategorie": "Bier"
+    },
+    {
       "name": "Bitburger 0,0",
       "menge": "0,3 l",
       "preis_eur": 3.4,
       "kategorie": "Alkoholfreies Bier"
     },
-    {
-      "name": "Augustiner Helles",
-      "menge": "0,5 l",
-      "preis_eur": 5.2,
-      "kategorie": "Bier"
+        {
+      "name": "Bitburger 0,0 herb",
+      "menge": "0,3 l",
+      "preis_eur": 3.4,
+      "kategorie": "Alkoholfreies Bier"
     },
     {
       "name": "Vita Malz",
@@ -732,15 +738,9 @@
       "menge": "0,5 l",
       "preis_eur": 5.2,
       "kategorie": "Alkoholfreies Bier"
-    },
-    {
-      "name": "Bitburger 0,0 herb",
-      "menge": "0,3 l",
-      "preis_eur": 3.4,
-      "kategorie": "Alkoholfreies Bier"
     }
   ],
-  "longdrinks": [
+  "longdrinks/Aperitif/Aperol/Spritz": [
     {
       "name": "Wildberry Lillet",
       "preis_eur": 7.0,
