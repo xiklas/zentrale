@@ -21,9 +21,7 @@
       <!-- Aktionen: Karte ansehen / Chat -->
       <div class="action-group">
         <a 
-          href="https://menu.tillersystems.com/48925/zentrale/menu/60568" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+          href="https://zentrale-kleve.de/menu2" 
           class="menu-link"
         >
           Karte ansehen
