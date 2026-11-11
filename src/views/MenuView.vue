@@ -16,7 +16,7 @@
 
       <!-- Kategorien -->
       <main class="menu-content">
-        <section v-for="a in abschnitte" :key="a.id" class="abschnitt">
+        <section v-for="a in abschnitte" :key="a.id" :id="'abschnitt-' + a.id" class="abschnitt">
           <h2 class="abschnitt-kopf">
             <button
               type="button"
@@ -37,7 +37,7 @@
             <div class="panel-inner">
               <p v-if="a.hinweis" class="hinweis">{{ a.hinweis }}</p>
 
-              <div v-for="u in a.untergruppen" :key="u.name" class="untergruppe">
+              <div v-for="u in a.untergruppen" :key="u.name" :id="'abschnitt-' + a.id + '-' + slug(u.name)" class="untergruppe">
                 <h3 v-if="a.zeigeUntergruppen" class="untergruppe-titel">{{ u.name }}</h3>
                 <ul class="liste">
                   <li v-for="z in u.zeilen" :key="z.name" class="zeile">
@@ -54,6 +54,16 @@
             </div>
           </div>
         </section>
+
+        <!-- Chat-Hinweis am Ende der Karte -->
+        <a href="/chat" class="ask-link">
+          <span class="ask-muted">Unsicher?</span>
+          <span class="ask-main">Frag den Barkeeper</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
       </main>
 
     </div>
@@ -61,7 +71,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 // Pfad ggf. an dein Projekt anpassen (Datei liegt z. B. in src/assets/)
 import karte from '../assets/karte_kategorisiert.json'
 
@@ -172,6 +182,45 @@ const istOffen = (id) => !!offen.value[id]
 const toggle = (id) => {
   offen.value = { ...offen.value, [id]: !offen.value[id] }
 }
+
+// ---------- Deep-Link ----------
+// /menu2#longdrinks         -> öffnet den Abschnitt
+// /menu2#longdrinks-spritz  -> öffnet ihn und scrollt direkt zur Untergruppe "Spritz"
+// (Untergruppen-ID = Abschnitts-ID + "-" + Name der Untergruppe in Kleinbuchstaben)
+const slug = (text) =>
+  text
+    .toLowerCase()
+    .replace(/ß/g, 'ss')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')
+
+const openFromHash = async () => {
+  const hash = decodeURIComponent(window.location.hash.slice(1))
+  if (!hash) return
+  const abschnitt = abschnitte.value.find((a) => hash === a.id || hash.startsWith(a.id + '-'))
+  if (!abschnitt) return
+
+  const warOffen = istOffen(abschnitt.id)
+  offen.value = { ...offen.value, [abschnitt.id]: true }
+  await nextTick()
+  // Beim frischen Aufklappen erst die Animation abwarten, sonst stimmt die Zielposition nicht
+  if (!warOffen) await new Promise((resolve) => setTimeout(resolve, 300))
+
+  const ziel =
+    document.getElementById('abschnitt-' + hash) ?? document.getElementById('abschnitt-' + abschnitt.id)
+  ziel?.scrollIntoView({ block: 'start', behavior: 'smooth' })
+}
+
+onMounted(() => {
+  openFromHash()
+  window.addEventListener('hashchange', openFromHash)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('hashchange', openFromHash)
+})
 
 const euroFormat = new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' })
 const euro = (preis) => euroFormat.format(preis)
@@ -346,6 +395,7 @@ const euro = (preis) => euroFormat.format(preis)
 }
 
 .untergruppe {
+  scroll-margin-top: 8px;
   margin-bottom: 8px;
 }
 
@@ -412,6 +462,32 @@ const euro = (preis) => euroFormat.format(preis)
 .preis {
   font-variant-numeric: tabular-nums;
   color: #000000 !important;
+}
+
+/* ---------- Chat-Link am Ende ---------- */
+.ask-link {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: 0.9rem;
+  color: #000000 !important;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ask-link svg {
+  stroke: #000000 !important;
+}
+
+.ask-muted {
+  opacity: 0.5;
+}
+
+.ask-main {
+  font-weight: 600;
 }
 
 @media (prefers-reduced-motion: reduce) {

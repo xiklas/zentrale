@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <!-- Aktionen: Karte ansehen / Chat -->
+      <!-- Hauptaktion, darunter leise Zusatzlinks -->
       <div class="action-group">
         <a 
           href="https://zentrale-kleve.de/menu2" 
@@ -27,41 +27,68 @@
           Karte ansehen
         </a>
 
-        <div class="or-divider" role="separator" aria-label="oder">
-          <span>oder</span>
+        <!-- Vorschläge je nach Uhrzeit (nur wenn geöffnet) -->
+        <div v-if="chips.length" class="trending">
+          <p class="trending-title">Highlights</p>
+          <div class="trending-links">
+            <template v-for="(c, i) in chips" :key="c.label">
+              <span v-if="i > 0" class="dot" aria-hidden="true">·</span>
+              <a :href="'/menu2#' + c.ziel" class="trend-link">{{ c.label }}</a>
+            </template>
+          </div>
         </div>
 
-        <a 
-          href="https://zentrale-kleve.de/chat" 
-          class="menu-link menu-link--outline"
-        >
-          Chat starten
+        <a href="https://zentrale-kleve.de/chat" class="ask-link">
+          <span class="ask-muted">Unsicher?</span>
+          <span class="ask-main">Stelle eine Frage</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </a>
       </div>
 
-      <!-- Öffnungszeiten -->
+      <!-- Öffnungszeiten: heute kompakt, Tipp zeigt alle -->
       <div class="opening-hours">
-              <h3 class="hours-title">Öffnungszeiten</h3>
-              <table class="hours-table">
-                <tbody>
-                  <tr :class="{ 'active-row': activeDay === 'mo-do' }">
-                    <td>Mo – Do</td>
-                    <td>19:00 – 00:00</td>
-                  </tr>
-                  <tr :class="{ 'active-row': activeDay === 'fr-sa' }">
-                    <td>Fr & Sa</td>
-                    <td>19:00 – 01:00</td>
-                  </tr>
-                  <tr :class="{ 'active-row': activeDay === 'so' }">
-                    <td>So</td>
-                    <td>Geschlossen</td>
-                  </tr>
-                </tbody>
-              </table>
+        <button
+          type="button"
+          class="hours-toggle"
+          :aria-expanded="showHours"
+          aria-controls="hours-panel"
+          @click="showHours = !showHours"
+        >
+          <span class="hours-label">Heute</span>
+          <span class="hours-today">{{ todayHours }}</span>
+          <svg class="chevron" :class="{ open: showHours }" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
       </div>
       <!-- Social & Kontakt Icons -->
 
 
+    </div>
+
+    <!-- Öffnungszeiten-Tabelle: liegt im Fluss unter dem Inhalt und schiebt nur die Fußzeile -->
+    <div id="hours-panel" class="hours-panel" :class="{ open: showHours }">
+      <div class="hours-panel-inner">
+        <table class="hours-table">
+          <tbody>
+            <tr :class="{ 'active-row': activeDay === 'mo-do' }">
+              <td>Mo – Do</td>
+              <td>19:00 – 00:00</td>
+            </tr>
+            <tr :class="{ 'active-row': activeDay === 'fr-sa' }">
+              <td>Fr & Sa</td>
+              <td>19:00 – 01:00</td>
+            </tr>
+            <tr :class="{ 'active-row': activeDay === 'so' }">
+              <td>So</td>
+              <td>Geschlossen</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Fußzeile mit Impressum-Link -->
@@ -127,12 +154,61 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 
 const alertMessage = ref('')
 const showImpressum = ref(false)
 const isOpen = ref(false)
 const activeDay = ref('mo-do')
+const showHours = ref(false)
+
+// Öffnungszeit von "heute" für die kompakte Zeile
+const todayHours = computed(() => ({
+  'mo-do': '19:00 – 00:00',
+  'fr-sa': '19:00 – 01:00',
+  'so': 'Geschlossen'
+})[activeDay.value])
+
+// ---------- Vorschläge (Chips) nach Uhrzeit ----------
+// Matrix: Zeitfenster -> Chips. "bis" = Minuten seit Öffnung (19:00).
+// "ziel" = ID des Abschnitts in MenuView:
+// bier, wein, softdrinks, gin, cocktails, longdrinks, whisky, spirituosen, obstbrand, snacks
+// Direkt zu einer Untergruppe: Abschnitt + "-" + Untergruppe, z. B. longdrinks-spritz, wein-weisswein
+const OEFFNUNG = 19 * 60
+const CHIP_MATRIX = [
+  { bis: 90, chips: [ // 19:00 – 20:30
+    { label: 'Aperol', ziel: 'longdrinks-spritz' },
+    { label: 'Weißwein', ziel: 'wein' },
+    { label: 'Bier', ziel: 'bier' }
+  ] },
+  { bis: 210, chips: [ // 20:30 – 22:30
+    { label: 'Gin & Tonic', ziel: 'gin' },
+    { label: 'Cocktails', ziel: 'cocktails' },
+    { label: 'Bier', ziel: 'bier' }
+  ] },
+  { bis: Infinity, chips: [ // ab 22:30 bis Schluss
+    { label: 'Gin & Tonic', ziel: 'gin' },
+    { label: 'Snacks', ziel: 'snacks' },
+    { label: 'Schnaps', ziel: 'spirituosen' }
+  ] }
+]
+
+// Minuten seit Öffnung (19:00) oder null, wenn geschlossen.
+// Mo–Do bis 00:00, Fr & Sa bis 01:00, So geschlossen.
+const minutenSeitOeffnung = (now) => {
+  const day = now.getDay() // 0 = So, 6 = Sa
+  const m = now.getHours() * 60 + now.getMinutes()
+  if (m < 60 && (day === 6 || day === 0)) return m + 24 * 60 - OEFFNUNG // Nach Mitternacht (Fr/Sa-Betrieb)
+  if (day === 0 || m < OEFFNUNG) return null
+  return m - OEFFNUNG
+}
+
+const chips = ref([])
+
+const updateChips = () => {
+  const seit = minutenSeitOeffnung(new Date())
+  chips.value = seit === null ? [] : CHIP_MATRIX.find((f) => seit < f.bis).chips
+}
 
 const checkOpenStatus = () => {
   const now = new Date()
@@ -159,6 +235,9 @@ const checkOpenStatus = () => {
   } else {
     activeDay.value = 'so'
   }
+
+  // 3. Vorschläge aktualisieren
+  updateChips()
 }
 
 onMounted(() => {
@@ -174,12 +253,14 @@ onMounted(() => {
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh; /* mobil: echte sichtbare Höhe (Adressleiste) */
   background-color: #ffffff;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding: 24px;
+  padding: 24px 24px 0;
+  overflow-y: auto; /* sehr kleine Bildschirme: Seite scrollt statt zu überlappen */
 }
 
 .alert-banner {
@@ -206,8 +287,10 @@ onMounted(() => {
   align-items: center;
   width: 280px;
   max-width: 85vw;
-  height: 72vh;
-  max-height: 560px;
+  height: auto;
+  min-height: min(72vh, 560px);
+  flex-shrink: 0;       /* nie unter die Inhaltshöhe schrumpfen */
+  margin-top: clamp(0px, 5vh, 48px); /* feste Position von oben: nichts verschiebt sich beim Aufklappen */
 }
 
 .centered-logo {
@@ -252,7 +335,7 @@ onMounted(() => {
 .menu-link {
   font-family: sans-serif;
   font-size: 1rem;
-  font-weight: 350;
+  font-weight: 400;
   color: #ffffff;
   background-color: #000000;
   text-decoration: none;
@@ -270,21 +353,6 @@ onMounted(() => {
   box-sizing: border-box;
 }
 
-/* Zweite Variante: Outline (weiß mit schwarzem Rand) */
-.menu-link--outline {
-  color: #000000;
-  background-color: #ffffff;
-  border: 1.5px solid #000000;
-  box-shadow: none;
-}
-
-.menu-link--outline:hover {
-  background-color: #000000;
-  color: #ffffff;
-  opacity: 1;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
-}
-
 .menu-link:hover {
   opacity: 0.88;
   transform: translateY(-1px);
@@ -295,7 +363,6 @@ onMounted(() => {
   transform: translateY(0);
 }
 
-/* Button-Gruppe mit "oder"-Trenner */
 .action-group {
   width: 100%;
   display: flex;
@@ -303,30 +370,88 @@ onMounted(() => {
   align-items: center;
 }
 
-.or-divider {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  margin: 12px 0;
-  font-family: sans-serif;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  color: #000000;
+/* Vorschläge: leise Textlinks */
+.trending {
+  margin-top: 22px;
+  text-align: center;
 }
 
-.or-divider span {
+.trending-title {
+  margin: 0 0 2px 0;
+  font-family: sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #000000;
+  opacity: 0.45;
+}
+
+.trending-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.trend-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 8px;
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: #000000;
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 0, 0, 0.3);
+  text-underline-offset: 4px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.trend-link:active {
+  text-decoration-color: #000000;
+}
+
+.dot {
+  font-family: sans-serif;
+  color: #000000;
+  opacity: 0.35;
+}
+
+/* Chat: kleiner Link statt Button */
+.ask-link {
+  margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  color: #000000;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ask-muted {
   opacity: 0.5;
 }
 
-.or-divider::before,
-.or-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background-color: #000000;
-  opacity: 0.15;
+.ask-main {
+  font-weight: 600;
+}
+
+.ask-link svg {
+  transition: transform 0.2s ease;
+}
+
+.ask-link:active svg {
+  transform: translateX(3px);
+}
+
+@media (hover: hover) {
+  .ask-link:hover svg {
+    transform: translateX(3px);
+  }
 }
 
 /* Öffnungszeiten Tabelle */
@@ -337,12 +462,64 @@ onMounted(() => {
   width: 100%;
 }
 
-.hours-title {
-  font-size: 0.85rem;
+.hours-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 8px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hours-label {
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-bottom: 12px;
-  font-weight: 600;
+  opacity: 0.5;
+}
+
+.chevron {
+  opacity: 0.5;
+  transition: transform 0.25s ease;
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Auf-/Zuklappen: Tabelle direkt unter der Zeile "Heute ...", schiebt nur die Fußzeile */
+.hours-panel {
+  width: 280px;
+  max-width: 85vw;
+  flex-shrink: 0;
+  font-family: sans-serif;
+  color: #000000;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.hours-panel.open {
+  grid-template-rows: 1fr;
+}
+
+.hours-panel-inner {
+  min-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0s linear 0.25s;
+}
+
+.hours-panel.open .hours-panel-inner {
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .hours-table {
@@ -378,10 +555,11 @@ onMounted(() => {
 
 /* Fußzeile */
 .menu-footer {
-  position: absolute;
-  bottom: 24px;
-  left: 0;
+  margin-top: auto;     /* Fußzeile unten; Platz dazwischen nutzt die Tabelle beim Aufklappen */
+  padding-top: 16px;
+  flex-shrink: 0;       /* liegt im normalen Fluss unter dem Inhalt, überlappt nie */
   width: 100%;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
   text-align: center;
 }
 
@@ -499,35 +677,12 @@ onMounted(() => {
 .icon-link:active {
   transform: translateY(0);
 }
-/* Dezenter Lichtreflex auf dem Chat-Button */
-.menu-link--outline {
-  position: relative;
-  overflow: hidden;
-}
-
-.menu-link--outline::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100%;
-  background: linear-gradient(100deg, transparent, rgba(0, 0, 0, 0.08), transparent);
-  transform: translateX(-150%) skewX(-20deg);
-  animation: button-shine 7s ease-in-out infinite;
-  pointer-events: none;
-}
-
-@keyframes button-shine {
-  0%, 70% { transform: translateX(-150%) skewX(-20deg); }
-  100%    { transform: translateX(350%) skewX(-20deg); }
-}
-
-/* Bewegung abschalten, wenn das Gerät "weniger Bewegung" eingestellt hat */
 @media (prefers-reduced-motion: reduce) {
-  .menu-link--outline::after {
-    animation: none;
-    display: none;
+  .hours-panel,
+  .hours-panel-inner,
+  .chevron,
+  .ask-link svg {
+    transition: none;
   }
 }
 </style>
