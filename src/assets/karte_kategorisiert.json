@@ -107,6 +107,12 @@
       "kategorie": "Weinschorle"
     },
     {
+      "name": "Glühwein vom Winzer",
+      "menge": "0,2 l",
+      "preis_eur": 4.0,
+      "kategorie": "Glühwein"
+    },
+    {
       "name": "Weißwein",
       "menge": "0,1 l",
       "preis_eur": 3.2,
@@ -717,7 +723,7 @@
       "preis_eur": 3.4,
       "kategorie": "Alkoholfreies Bier"
     },
-        {
+    {
       "name": "Bitburger 0,0 herb",
       "menge": "0,3 l",
       "preis_eur": 3.4,

@@ -83,7 +83,7 @@ const ABSCHNITTE = [
   { id: 'bier', titel: 'Bier', untergruppen: true,
     kategorien: ['Bier', 'Biermischgetränk', 'Alkoholfreies Bier'] },
   { id: 'wein', titel: 'Wein & Sekt', untergruppen: true,
-    kategorien: ['Weißwein', 'Rotwein', 'Roséwein', 'Schaumwein', 'Weinschorle'] },
+    kategorien: ['Weißwein', 'Rotwein', 'Roséwein', 'Schaumwein', 'Weinschorle', 'Glühwein'] },
   { id: 'softdrinks', titel: 'Softdrinks & Säfte', untergruppen: true,
     kategorien: ['Wasser', 'Cola & Limonade', 'Saft', 'Saftschorle', 'Eistee', 'Mixer'] },
   { id: 'gin', titel: 'Gin & Tonic', untergruppen: true,

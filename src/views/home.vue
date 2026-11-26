@@ -27,7 +27,7 @@
           Karte ansehen
         </a>
 
-        <!-- Vorschläge je nach Uhrzeit (nur wenn geöffnet) -->
+        <!-- Vorschläge je nach Uhrzeit (auch wenn geschlossen) -->
         <div v-if="chips.length" class="trending">
           <p class="trending-title">Highlights</p>
           <div class="trending-links">
@@ -175,9 +175,20 @@ const todayHours = computed(() => ({
 // bier, wein, softdrinks, gin, cocktails, longdrinks, whisky, spirituosen, obstbrand, snacks
 // Direkt zu einer Untergruppe: Abschnitt + "-" + Untergruppe, z. B. longdrinks-spritz, wein-weisswein
 const OEFFNUNG = 19 * 60
+
+// Glühwein wird immer vorgeschlagen: bei geöffnetem Laden zusätzlich zu den Zeitfenster-Chips.
+// Springt zur Untergruppe "Glühwein" in "Wein & Sekt".
+const GLUEHWEIN_CHIP = { label: 'Glühwein', ziel: 'wein-gluhwein' }
+
+// Vorschläge bei geschlossenem Laden
+const CHIPS_GESCHLOSSEN = [
+  GLUEHWEIN_CHIP,
+  { label: 'Aperitif', ziel: 'longdrinks-spritz' },
+  { label: 'Cocktails', ziel: 'cocktails' }
+]
 const CHIP_MATRIX = [
   { bis: 90, chips: [ // 19:00 – 20:30
-    { label: 'Aperol', ziel: 'longdrinks-spritz' },
+    { label: 'Aperitif', ziel: 'longdrinks-spritz' },
     { label: 'Weißwein', ziel: 'wein' },
     { label: 'Bier', ziel: 'bier' }
   ] },
@@ -207,7 +218,9 @@ const chips = ref([])
 
 const updateChips = () => {
   const seit = minutenSeitOeffnung(new Date())
-  chips.value = seit === null ? [] : CHIP_MATRIX.find((f) => seit < f.bis).chips
+  chips.value = seit === null
+    ? CHIPS_GESCHLOSSEN
+    : [...CHIP_MATRIX.find((f) => seit < f.bis).chips, GLUEHWEIN_CHIP]
 }
 
 const checkOpenStatus = () => {
